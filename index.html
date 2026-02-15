@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark John Ando | The Ando-Verse</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Space Grotesk', sans-serif; background-color: #000; color: #fff; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+        .grain {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.15;
+        }
+        
+        .spotify-row:hover .play-icon { opacity: 1; }
+        .spotify-row:hover .track-num { opacity: 0; }
+        
+        .gallery-item {
+            transition: transform 0.5s ease, filter 0.5s ease;
+            filter: grayscale(100%) contrast(120%);
+        }
+        .gallery-item:hover {
+            filter: grayscale(0%) contrast(100%);
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body class="bg-black text-neutral-200 overflow-x-hidden selection:bg-white selection:text-black">
+
+    <div class="grain"></div>
+
+    <nav class="relative z-40 p-8 flex justify-between items-center max-w-7xl mx-auto mix-blend-difference">
+        <div class="text-2xl font-bold tracking-tighter text-white">MJA<span class="text-neutral-500">.ARCHIVE</span></div>
+        <div class="flex gap-8 text-xs font-medium tracking-[0.2em] uppercase text-neutral-400">
+            <a href="#about" class="hover:text-white transition-colors">About</a>
+            <a href="#gallery" class="hover:text-white transition-colors">Visuals</a>
+            <a href="#projects" class="hover:text-white transition-colors">Focus</a>
+            <a href="#vibe" class="hover:text-white transition-colors">Audio</a>
+        </div>
+    </nav>
+
+    <header id="about" class="relative z-10 pt-32 pb-20 px-6 max-w-7xl mx-auto">
+        <div class="border-b border-neutral-800 pb-16">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+                <div class="lg:col-span-8">
+                    <h1 class="text-7xl md:text-9xl lg:text-[11rem] font-bold tracking-tighter leading-[0.8] text-white mb-8">
+                        MARK<br><span class="text-neutral-800">J.</span> ANDO
+                    </h1>
+                    <div class="flex flex-wrap gap-x-8 gap-y-2 text-neutral-500 text-sm tracking-[0.2em] uppercase">
+                        <span>Full Stack Developer</span>
+                        <span>•</span>
+                        <span>UI/UX Enthusiast</span>
+                        <span>•</span>
+                        <span>Zamboanga City</span>
+                    </div>
+                </div>
+                <div class="lg:col-span-4">
+                    <div class="relative aspect-[3/4] overflow-hidden bg-neutral-900 border border-neutral-800 mb-6 group">
+                        <img src="images/back.jpg" alt="Profile" class="w-full h-full object-cover grayscale contrast-125 transition duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-neutral-900/20 group-hover:bg-transparent transition duration-500"></div>
+                    </div>
+                    <p class="text-xl text-neutral-400 font-light leading-relaxed">
+                        Crafting digital experiences in the monochrome void. <span class="text-white">Simplicity is the ultimate sophistication.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative z-10 py-12 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-neutral-900 border border-neutral-900">
+            <div class="bg-black p-8 hover:bg-neutral-950 transition">
+                <h4 class="text-[10px] uppercase tracking-[0.2em] text-neutral-500 mb-2">Status</h4>
+                <p class="text-lg font-medium text-white">Student @ WMSU</p>
+            </div>
+            <div class="bg-black p-8 hover:bg-neutral-950 transition">
+                <h4 class="text-[10px] uppercase tracking-[0.2em] text-neutral-500 mb-2">Location</h4>
+                <p class="text-lg font-medium text-white">Zamboanga City</p>
+            </div>
+            <div class="bg-black p-8 hover:bg-neutral-950 transition">
+                <h4 class="text-[10px] uppercase tracking-[0.2em] text-neutral-500 mb-2">Interests</h4>
+                <p class="text-lg font-medium text-white">Code / Audio</p>
+            </div>
+            <div class="bg-black p-8 hover:bg-neutral-950 transition">
+                <h4 class="text-[10px] uppercase tracking-[0.2em] text-neutral-500 mb-2">Mood</h4>
+                <p class="text-lg font-medium text-white">Monochrome</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="relative z-10 py-20 px-6 max-w-7xl mx-auto">
+        <div class="flex items-end justify-between mb-12">
+            <h2 class="text-4xl font-bold tracking-tighter text-white">VISUAL LOGS</h2>
+            <p class="text-xs text-neutral-500 tracking-widest uppercase hidden md:block">09 Items Loaded</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[300px]">
+            <!-- Item 1: landscape-->
+            <div class="gallery-item md:col-span-2 group relative overflow-hidden bg-neutral-900">
+                <img src="images/sunset.jpg" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1514525253440-b393452e3383?q=80&w=1000" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                    <span class="text-xs font-bold tracking-widest uppercase border border-white px-4 py-2">Sunset</span>
+                </div>
+            </div>
+            
+            <!-- Item 2: coffee -->
+            <div class="gallery-item group relative overflow-hidden bg-neutral-900">
+                <img src="images/coffee.jpg" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=100" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                    <span class="text-xs font-bold tracking-widest uppercase border border-white px-4 py-2">Caffeine</span>
+                </div>
+            </div>
+
+            <!-- Item 3:  gaming-->
+            <div class="gallery-item group relative overflow-hidden bg-neutral-900">
+                <img src="images/gaming.jpg" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                    <span class="text-xs font-bold tracking-widest uppercase border border-white px-4 py-2">Gaming Setup</span>
+                </div>
+            </div>
+
+            <!-- Item 4: setup-->
+            <div class="gallery-item md:col-span-2 group relative overflow-hidden bg-neutral-900">
+                <img src="images/setup.jpg" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?q=80&w=1000" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                    <span class="text-xs font-bold tracking-widest uppercase border border-white px-4 py-2">Workspace</span>
+                </div>
+            </div>
+
+            <!-- Item 5: music -->
+            <div class="gallery-item group relative overflow-hidden bg-neutral-900">
+                <img src="images/music.jpg" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1000" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                    <span class="text-xs font-bold tracking-widest uppercase border border-white px-4 py-2">Spotify</span>
+                </div>
+            </div>
+
+            <!-- Item 6: landscape -->
+            <div class="gallery-item group relative overflow-hidden bg-neutral-900">
+                <img src="images/landscape.png" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                    <span class="text-xs font-bold tracking-widest uppercase border border-white px-4 py-2">Structure</span>
+                </div>
+            </div>
+
+            <!-- Item 7: Wide -->
+            <div class="gallery-item md:col-span-2 group relative overflow-hidden bg-neutral-900">
+                <img src="images/nature.jpg" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=1000" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                    <span class="text-xs font-bold tracking-widest uppercase border border-white px-4 py-2">Me and Nature</span>
+                </div>
+            </div>
+
+            <!-- Item 8: Portrait -->
+            <div class="gallery-item group relative overflow-hidden bg-neutral-900">
+                <img src="images/stollen.png" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1000" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                    <span class="text-xs font-bold tracking-widest uppercase border border-white px-4 py-2">Stollen Pic</span>
+                </div>
+            </div>
+
+            <!-- Item 9: closeup -->
+            <div class="gallery-item group relative overflow-hidden bg-neutral-900">
+                <img src="images/closeup.jpeg" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                    <span class="text-xs font-bold tracking-widest uppercase border border-white px-4 py-2">Me and My kilay</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="relative z-10 py-20 px-6 max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold text-white mb-12 tracking-tighter">CURRENT FOCUS</h2>
+        
+        <div class="space-y-12 border-l border-neutral-800 ml-4">
+            <div class="relative pl-12">
+                <div class="absolute -left-[5px] top-2 w-2 h-2 bg-white"></div>
+                <h3 class="text-2xl font-bold text-white">UNIVERSITY LIFE</h3>
+                <p class="text-neutral-500 mt-1 text-sm uppercase tracking-widest">WMSU - Zamboanga City</p>
+                <p class="mt-4 text-neutral-400 leading-relaxed">Surviving the semester and making the most of my internship days. Balancing academics with real-world experiences.</p>
+            </div>
+
+            <div class="relative pl-12">
+                <div class="absolute -left-[5px] top-2 w-2 h-2 bg-neutral-600"></div>
+                <h3 class="text-2xl font-bold text-white">CREATIVE OUTLET</h3>
+                <p class="mt-1 text-neutral-500 text-sm uppercase tracking-widest">Photography & Design</p>
+                <p class="mt-4 text-neutral-400 leading-relaxed">Exploring digital art and capturing moments around the city. Building my own little aesthetic corner of the internet.</p>
+            </div>
+
+            <div class="relative pl-12 opacity-50">
+                <div class="absolute -left-[5px] top-2 w-2 h-2 bg-neutral-800"></div>
+                <h3 class="text-2xl font-bold">NEXT CHAPTER</h3>
+                <p class="mt-1 text-neutral-500 text-sm uppercase tracking-widest">Future Plans</p>
+                <p class="mt-4 text-neutral-400 leading-relaxed">Preparing for the next big leap in my journey. Whether it's further studies or new adventures, I'm ready for the unknown.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="vibe" class="relative z-10 py-20 bg-neutral-950 border-t border-neutral-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-white mb-12 tracking-tighter">AUDIO ROTATION</h2>
+            
+            <!-- Spotify Window Style -->
+            <div class="bg-black border border-neutral-800 rounded-xl overflow-hidden shadow-2xl">
+                <!-- Playlist Header -->
+                <div class="bg-gradient-to-b from-neutral-800 to-black p-8 flex flex-col md:flex-row items-end gap-6">
+                    <div class="w-48 h-48 shadow-2xl shrink-0">
+                        <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=400" class="w-full h-full object-cover grayscale">
+                    </div>
+                    <div class="mb-2">
+                        <p class="text-xs font-bold uppercase tracking-widest text-white mb-2">Public Playlist</p>
+                        <h3 class="text-5xl md:text-7xl font-bold text-white tracking-tighter mb-4">Late Night</h3>
+                        <p class="text-neutral-400 text-sm">Mark John Ando • 15 songs, 58 min</p>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="p-6 flex items-center gap-6 border-b border-neutral-900">
+                    <button class="w-14 h-14 bg-white rounded-full flex items-center justify-center hover:scale-105 transition text-black">
+                        <svg class="w-6 h-6 fill-current ml-1" viewBox="0 0 24 24"><path d="M3 22v-20l18 10-18 10z"/></svg>
+                    </button>
+                    <button class="text-neutral-400 hover:text-white"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg></button>
+                    <button class="text-neutral-400 hover:text-white"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path></svg></button>
+                </div>
+
+                <!-- Track List -->
+                <div class="p-4 md:p-8">
+                    <div class="grid grid-cols-[auto_1fr_auto] gap-4 text-sm text-neutral-400 border-b border-neutral-800 pb-2 mb-4 px-4 uppercase tracking-widest text-[10px]">
+                        <span>#</span>
+                        <span>Title</span>
+                        <span class="hidden md:block">Duration</span>
+                    </div>
+
+                    <!-- Track 1: Just Hush -->
+                    <div class="spotify-row grid grid-cols-[auto_1fr_auto] gap-4 items-center p-3 rounded-md hover:bg-white/10 group cursor-pointer transition">
+                        <div class="w-6 text-center relative">
+                            <span class="track-num text-neutral-500">1</span>
+                            <svg class="play-icon w-4 h-4 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0" viewBox="0 0 24 24"><path d="M3 22v-20l18 10-18 10z"/></svg>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=100" class="w-10 h-10 grayscale">
+                            <div>
+                                <div class="text-white font-medium text-base">Iraya</div>
+                                <div class="text-neutral-500 text-xs">Just Hush</div>
+                            </div>
+                        </div>
+                        <span class="text-neutral-500 hidden md:block">4:20</span>
+                    </div>
+
+                    <!-- Track 2: Just Hush -->
+                    <div class="spotify-row grid grid-cols-[auto_1fr_auto] gap-4 items-center p-3 rounded-md hover:bg-white/10 group cursor-pointer transition">
+                        <div class="w-6 text-center relative">
+                            <span class="track-num text-neutral-500">2</span>
+                            <svg class="play-icon w-4 h-4 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0" viewBox="0 0 24 24"><path d="M3 22v-20l18 10-18 10z"/></svg>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=100" class="w-10 h-10 grayscale">
+                            <div>
+                                <div class="text-white font-medium text-base">Maikee's Letters</div>
+                                <div class="text-neutral-500 text-xs">Just Hush</div>
+                            </div>
+                        </div>
+                        <span class="text-neutral-500 hidden md:block">4:45</span>
+                    </div>
+
+                    <!-- Track 3: Just Hush -->
+                    <div class="spotify-row grid grid-cols-[auto_1fr_auto] gap-4 items-center p-3 rounded-md hover:bg-white/10 group cursor-pointer transition">
+                        <div class="w-6 text-center relative">
+                            <span class="track-num text-neutral-500">3</span>
+                            <svg class="play-icon w-4 h-4 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0" viewBox="0 0 24 24"><path d="M3 22v-20l18 10-18 10z"/></svg>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=100" class="w-10 h-10 grayscale">
+                            <div>
+                                <div class="text-white font-medium text-base">Shinobi</div>
+                                <div class="text-neutral-500 text-xs">Just Hush</div>
+                            </div>
+                        </div>
+                        <span class="text-neutral-500 hidden md:block">3:50</span>
+                    </div>
+
+                    <!-- Track 4: Just Hush -->
+                    <div class="spotify-row grid grid-cols-[auto_1fr_auto] gap-4 items-center p-3 rounded-md hover:bg-white/10 group cursor-pointer transition">
+                        <div class="w-6 text-center relative">
+                            <span class="track-num text-neutral-500">4</span>
+                            <svg class="play-icon w-4 h-4 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0" viewBox="0 0 24 24"><path d="M3 22v-20l18 10-18 10z"/></svg>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=100" class="w-10 h-10 grayscale">
+                            <div>
+                                <div class="text-white font-medium text-base">Masiram</div>
+                                <div class="text-neutral-500 text-xs">Just Hush</div>
+                            </div>
+                        </div>
+                        <span class="text-neutral-500 hidden md:block">3:30</span>
+                    </div>
+
+                    <!-- Track 5: Chase Atlantic -->
+                    <div class="spotify-row grid grid-cols-[auto_1fr_auto] gap-4 items-center p-3 rounded-md hover:bg-white/10 group cursor-pointer transition">
+                        <div class="w-6 text-center relative">
+                            <span class="track-num text-neutral-500">5</span>
+                            <svg class="play-icon w-4 h-4 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0" viewBox="0 0 24 24"><path d="M3 22v-20l18 10-18 10z"/></svg>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=100" class="w-10 h-10 grayscale">
+                            <div>
+                                <div class="text-white font-medium text-base">Anchor Tattoo</div>
+                                <div class="text-neutral-500 text-xs">Chase Atlantic</div>
+                            </div>
+                        </div>
+                        <span class="text-neutral-500 hidden md:block">3:49</span>
+                    </div>
+
+                    <!-- Track 6: Chase Atlantic -->
+                    <div class="spotify-row grid grid-cols-[auto_1fr_auto] gap-4 items-center p-3 rounded-md hover:bg-white/10 group cursor-pointer transition">
+                        <div class="w-6 text-center relative">
+                            <span class="track-num text-neutral-500">6</span>
+                            <svg class="play-icon w-4 h-4 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0" viewBox="0 0 24 24"><path d="M3 22v-20l18 10-18 10z"/></svg>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=100" class="w-10 h-10 grayscale">
+                            <div>
+                                <div class="text-white font-medium text-base">Friends</div>
+                                <div class="text-neutral-500 text-xs">Chase Atlantic</div>
+                            </div>
+                        </div>
+                        <span class="text-neutral-500 hidden md:block">3:02</span>
+                    </div>
+
+                    <!-- Track 7: Chase Atlantic -->
+                    <div class="spotify-row grid grid-cols-[auto_1fr_auto] gap-4 items-center p-3 rounded-md hover:bg-white/10 group cursor-pointer transition">
+                        <div class="w-6 text-center relative">
+                            <span class="track-num text-neutral-500">7</span>
+                            <svg class="play-icon w-4 h-4 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0" viewBox="0 0 24 24"><path d="M3 22v-20l18 10-18 10z"/></svg>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=100" class="w-10 h-10 grayscale">
+                            <div>
+                                <div class="text-white font-medium text-base">Hold Your Breath</div>
+                                <div class="text-neutral-500 text-xs">Chase Atlantic</div>
+                            </div>
+                        </div>
+                        <span class="text-neutral-500 hidden md:block">3:33</span>
+                    </div>
+
+                    <!-- Track 8: Chase Atlantic -->
+                    <div class="spotify-row grid grid-cols-[auto_1fr_auto] gap-4 items-center p-3 rounded-md hover:bg-white/10 group cursor-pointer transition">
+                        <div class="w-6 text-center relative">
+                            <span class="track-num text-neutral-500">8</span>
+                            <svg class="play-icon w-4 h-4 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0" viewBox="0 0 24 24"><path d="M3 22v-20l18 10-18 10z"/></svg>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=100" class="w-10 h-10 grayscale">
+                            <div>
+                                <div class="text-white font-medium text-base">Into It</div>
+                                <div class="text-neutral-500 text-xs">Chase Atlantic</div>
+                            </div>
+                        </div>
+                        <span class="text-neutral-500 hidden md:block">3:12</span>
+                    </div>
+
+                    <!-- Track 9: The Weeknd -->
+                    <div class="spotify-row grid grid-cols-[auto_1fr_auto] gap-4 items-center p-3 rounded-md hover:bg-white/10 group cursor-pointer transition">
+                        <div class="w-6 text-center relative">
+                            <span class="track-num text-neutral-500">9</span>
+                            <svg class="play-icon w-4 h-4 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0" viewBox="0 0 24 24"><path d="M3 22v-20l18 10-18 10z"/></svg>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=100" class="w-10 h-10 grayscale">
+                            <div>
+                                <div class="text-white font-medium text-base">The Hills</div>
+                                <div class="text-neutral-500 text-xs">The Weeknd</div>
+                            </div>
+                        </div>
+                        <span class="text-neutral-500 hidden md:block">4:02</span>
+                    </div>
+
+                    <!-- Track 10: The Weeknd -->
+                    <div class="spotify-row grid grid-cols-[auto_1fr_auto] gap-4 items-center p-3 rounded-md hover:bg-white/10 group cursor-pointer transition">
+                        <div class="w-6 text-center relative">
+                            <span class="track-num text-neutral-500">10</span>
+                            <svg class="play-icon w-4 h-4 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0" viewBox="0 0 24 24"><path d="M3 22v-20l18 10-18 10z"/></svg>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=100" class="w-10 h-10 grayscale">
+                            <div>
+                                <div class="text-white font-medium text-base">Die For You</div>
+                                <div class="text-neutral-500 text-xs">The Weeknd</div>
+                            </div>
+                        </div>
+                        <span class="text-neutral-500 hidden md:block">4:20</span>
+                    </div>
+
+                    <!-- Track 11: The Weeknd -->
+                    <div class="spotify-row grid grid-cols-[auto_1fr_auto] gap-4 items-center p-3 rounded-md hover:bg-white/10 group cursor-pointer transition">
+                        <div class="w-6 text-center relative">
+                            <span class="track-num text-neutral-500">11</span>
+                            <svg class="play-icon w-4 h-4 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0" viewBox="0 0 24 24"><path d="M3 22v-20l18 10-18 10z"/></svg>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=100" class="w-10 h-10 grayscale">
+                            <div>
+                                <div class="text-white font-medium text-base">After Hours</div>
+                                <div class="text-neutral-500 text-xs">The Weeknd</div>
+                            </div>
+                        </div>
+                        <span class="text-neutral-500 hidden md:block">6:01</span>
+                    </div>
+
+                    <!-- Track 12: The Weeknd -->
+                    <div class="spotify-row grid grid-cols-[auto_1fr_auto] gap-4 items-center p-3 rounded-md hover:bg-white/10 group cursor-pointer transition">
+                        <div class="w-6 text-center relative">
+                            <span class="track-num text-neutral-500">12</span>
+                            <svg class="play-icon w-4 h-4 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0" viewBox="0 0 24 24"><path d="M3 22v-20l18 10-18 10z"/></svg>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=100" class="w-10 h-10 grayscale">
+                            <div>
+                                <div class="text-white font-medium text-base">Starboy</div>
+                                <div class="text-neutral-500 text-xs">The Weeknd</div>
+                            </div>
+                        </div>
+                        <span class="text-neutral-500 hidden md:block">3:50</span>
+                    </div>
+
+                    <!-- Track 13: The Weeknd -->
+                    <div class="spotify-row grid grid-cols-[auto_1fr_auto] gap-4 items-center p-3 rounded-md hover:bg-white/10 group cursor-pointer transition">
+                        <div class="w-6 text-center relative">
+                            <span class="track-num text-neutral-500">13</span>
+                            <svg class="play-icon w-4 h-4 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0" viewBox="0 0 24 24"><path d="M3 22v-20l18 10-18 10z"/></svg>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=100" class="w-10 h-10 grayscale">
+                            <div>
+                                <div class="text-white font-medium text-base">Call Out My Name</div>
+                                <div class="text-neutral-500 text-xs">The Weeknd</div>
+                            </div>
+                        </div>
+                        <span class="text-neutral-500 hidden md:block">3:48</span>
+                    </div>
+
+                    <!-- Track 14: The Weeknd -->
+                    <div class="spotify-row grid grid-cols-[auto_1fr_auto] gap-4 items-center p-3 rounded-md hover:bg-white/10 group cursor-pointer transition">
+                        <div class="w-6 text-center relative">
+                            <span class="track-num text-neutral-500">14</span>
+                            <svg class="play-icon w-4 h-4 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0" viewBox="0 0 24 24"><path d="M3 22v-20l18 10-18 10z"/></svg>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=100" class="w-10 h-10 grayscale">
+                            <div>
+                                <div class="text-white font-medium text-base">Reminder</div>
+                                <div class="text-neutral-500 text-xs">The Weeknd</div>
+                            </div>
+                        </div>
+                        <span class="text-neutral-500 hidden md:block">3:39</span>
+                    </div>
+
+                    <!-- Track 15: M83 -->
+                    <div class="spotify-row grid grid-cols-[auto_1fr_auto] gap-4 items-center p-3 rounded-md hover:bg-white/10 group cursor-pointer transition">
+                        <div class="w-6 text-center relative">
+                            <span class="track-num text-neutral-500">15</span>
+                            <svg class="play-icon w-4 h-4 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0" viewBox="0 0 24 24"><path d="M3 22v-20l18 10-18 10z"/></svg>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=100" class="w-10 h-10 grayscale">
+                            <div>
+                                <div class="text-white font-medium text-base">Midnight City</div>
+                                <div class="text-neutral-500 text-xs">M83</div>
+                            </div>
+                        </div>
+                        <span class="text-neutral-500 hidden md:block">4:03</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="relative z-10 py-10 text-center text-neutral-700 text-xs tracking-[0.2em] uppercase border-t border-neutral-900">
+        © 2026 Mark John Ando // WMSU CCS INTERN // ZAMBOANGA CITY
+    </footer>
+
+    <script>
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
